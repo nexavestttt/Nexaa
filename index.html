@@ -1,564 +1,861 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Corny Guerra — Account</title>
+<title>Cony Guerra — Account Panel</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Inter,Arial,sans-serif;
 }
 
-body {
-  min-height: 100vh;
-  background: #f3f6fa;
-  color: #172033;
-  padding: 20px;
+body{
+    background:#f4f7fb;
+    color:#172033;
+    min-height:100vh;
 }
 
-.dashboard {
-  max-width: 500px;
-  margin: auto;
-  background: #fff;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 15px 45px rgba(0,0,0,.10);
+.header{
+    background:linear-gradient(135deg,#101c3a,#1769aa);
+    color:white;
+    padding:28px 20px 55px;
+    text-align:center;
 }
 
-/* HEADER */
-
-.header {
-  background: #101828;
-  color: white;
-  padding: 28px 24px;
+.header h1{
+    font-size:25px;
+    margin-bottom:7px;
 }
 
-.brand {
-  font-size: 12px;
-  opacity: .65;
-  letter-spacing: .5px;
-  margin-bottom: 18px;
+.header p{
+    opacity:.85;
+    font-size:14px;
 }
 
-.name {
-  font-size: 28px;
-  font-weight: 800;
+.container{
+    max-width:650px;
+    margin:-32px auto 40px;
+    padding:0 15px;
 }
 
-.subtitle {
-  margin-top: 6px;
-  font-size: 13px;
-  opacity: .65;
+.card{
+    background:white;
+    border-radius:18px;
+    padding:22px;
+    margin-bottom:18px;
+    box-shadow:0 8px 30px rgba(20,40,80,.09);
 }
 
-/* CONTENT */
-
-.content {
-  padding: 24px;
+.profile{
+    display:flex;
+    align-items:center;
+    gap:15px;
 }
 
-.card {
-  border: 1px solid #eaecf0;
-  border-radius: 17px;
-  padding: 20px;
-  margin-bottom: 16px;
+.avatar{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#1769aa,#55a9df);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:800;
+    font-size:22px;
 }
 
-.label {
-  color: #667085;
-  font-size: 13px;
-  margin-bottom: 8px;
+.profile h2{
+    font-size:20px;
 }
 
-.amount {
-  font-size: 36px;
-  font-weight: 800;
-  color: #087443;
+.profile span{
+    font-size:13px;
+    color:#667085;
 }
 
-.status {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 7px 11px;
-  border-radius: 20px;
-  background: #eaf8f0;
-  color: #087443;
-  font-size: 12px;
-  font-weight: 700;
+.status{
+    margin-left:auto;
+    background:#e8f8ee;
+    color:#18864b;
+    padding:7px 11px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:700;
 }
 
-/* INFORMATION */
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+.label{
+    color:#667085;
+    font-size:13px;
+    margin-bottom:8px;
 }
 
-.value {
-  font-size: 19px;
-  font-weight: 700;
-  margin-top: 5px;
+.balance{
+    font-size:38px;
+    font-weight:800;
+    letter-spacing:-1px;
 }
 
-/* COUNTDOWN */
-
-.timer {
-  background: #101828;
-  color: white;
-  text-align: center;
+.balance small{
+    font-size:14px;
+    color:#667085;
+    font-weight:500;
 }
 
-.timer-title {
-  font-size: 12px;
-  opacity: .65;
-  margin-bottom: 10px;
+.divider{
+    height:1px;
+    background:#edf0f4;
+    margin:20px 0;
 }
 
-#countdown {
-  font-size: 38px;
-  font-weight: 800;
-  letter-spacing: 2px;
+.fee-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-/* WITHDRAW BUTTONS */
-
-.action-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+.fee{
+    font-size:26px;
+    font-weight:800;
 }
 
-.action {
-  border: none;
-  border-radius: 12px;
-  padding: 14px 10px;
-  font-size: 13px;
-  font-weight: 800;
-  cursor: not-allowed;
-  background: #d0d5dd;
-  color: #475467;
+.paid{
+    color:#16884c;
+    background:#e8f8ef;
+    border-radius:20px;
+    padding:7px 12px;
+    font-size:12px;
+    font-weight:800;
 }
 
-/* BANKS */
-
-.bank-title {
-  font-size: 17px;
-  font-weight: 800;
-  margin-bottom: 12px;
+.timer{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-top:15px;
 }
 
-.bank {
-  width: 100%;
-  border: 1px solid #d0d5dd;
-  background: #fff;
-  border-radius: 12px;
-  padding: 14px;
-  margin-top: 9px;
-  text-align: left;
-  cursor: not-allowed;
+.time-box{
+    background:#111d38;
+    color:white;
+    border-radius:10px;
+    min-width:64px;
+    padding:10px 7px;
+    text-align:center;
 }
 
-.bank strong {
-  display: block;
-  font-size: 14px;
+.time-box strong{
+    display:block;
+    font-size:20px;
 }
 
-.bank span {
-  display: block;
-  margin-top: 3px;
-  font-size: 11px;
-  color: #98a2b3;
+.time-box span{
+    font-size:10px;
+    opacity:.65;
 }
 
-/* VERIFICATION */
-
-.verification {
-  border: 1px solid #eaecf0;
-  border-radius: 15px;
-  padding: 16px;
+.section-title{
+    font-size:18px;
+    font-weight:800;
+    margin-bottom:15px;
 }
 
-.verification-title {
-  font-size: 15px;
-  font-weight: 800;
-  margin-bottom: 10px;
+.withdraw-main{
+    width:100%;
+    border:0;
+    padding:15px;
+    border-radius:12px;
+    background:#d9dee7;
+    color:#778092;
+    font-size:15px;
+    font-weight:800;
+    cursor:not-allowed;
 }
 
-.verify-item {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 8px 0;
-  font-size: 12px;
+.bank-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:15px;
 }
 
-.check {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #eaf8f0;
-  color: #087443;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
+.bank{
+    border:1px solid #e2e7ef;
+    background:#fff;
+    padding:14px 10px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.2s;
+    font-weight:700;
+    font-size:13px;
 }
 
-.verify-note {
-  margin-top: 8px;
-  font-size: 10px;
-  color: #98a2b3;
-  line-height: 1.5;
+.bank:hover{
+    border-color:#1769aa;
+    transform:translateY(-1px);
+    box-shadow:0 5px 15px rgba(23,105,170,.1);
 }
 
-/* FOOTER */
-
-.footer {
-  text-align: center;
-  color: #98a2b3;
-  font-size: 11px;
-  margin-top: 18px;
+.bank-form{
+    display:none;
+    margin-top:18px;
+    border-top:1px solid #edf0f4;
+    padding-top:18px;
 }
 
-/* ENGLISH DISCLOSURE AT VERY BOTTOM */
-
-.notice {
-  background: #fff8e8;
-  border: 1px solid #f6dfad;
-  color: #795600;
-  border-radius: 13px;
-  padding: 14px;
-  font-size: 12px;
-  line-height: 1.6;
-  margin-top: 20px;
-  text-align: left;
+.bank-form.active{
+    display:block;
 }
 
-@media(max-width:400px) {
+.bank-form h3{
+    margin-bottom:15px;
+    font-size:17px;
+}
 
-  .amount {
-    font-size: 31px;
-  }
+.input-group{
+    margin-bottom:13px;
+}
 
-  #countdown {
-    font-size: 32px;
-  }
+.input-group label{
+    display:block;
+    font-size:12px;
+    color:#667085;
+    margin-bottom:6px;
+}
 
+.input-group input{
+    width:100%;
+    padding:13px;
+    border:1px solid #dce2ea;
+    border-radius:10px;
+    outline:none;
+    font-size:14px;
+}
+
+.input-group input:focus{
+    border-color:#1769aa;
+}
+
+.submit{
+    width:100%;
+    border:0;
+    background:#1769aa;
+    color:white;
+    padding:14px;
+    border-radius:11px;
+    font-size:14px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.submit:hover{
+    background:#12578d;
+}
+
+.processing-fee{
+    background:#fff8e7;
+    border:1px solid #f5df9d;
+    color:#805f00;
+    padding:13px;
+    border-radius:10px;
+    font-size:13px;
+    margin-bottom:14px;
+}
+
+.processing-fee strong{
+    display:block;
+    font-size:16px;
+    margin-top:3px;
+}
+
+.note{
+    color:#667085;
+    font-size:11px;
+    margin-top:7px;
+    line-height:1.5;
+}
+
+.success{
+    background:#eaf8f0;
+    border:1px solid #b9e8ca;
+    color:#176b3d;
+    padding:16px;
+    border-radius:12px;
+}
+
+.success strong{
+    display:block;
+    margin-bottom:5px;
+}
+
+.verify{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.verify-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    border:1px solid #edf0f4;
+    padding:13px;
+    border-radius:12px;
+}
+
+.verify-icon{
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:900;
+    background:#eef4ff;
+    color:#1769aa;
+}
+
+.verify-row strong{
+    display:block;
+    font-size:14px;
+}
+
+.verify-row span{
+    color:#667085;
+    font-size:11px;
+}
+
+.check{
+    margin-left:auto;
+    color:#16884c;
+    font-weight:900;
+}
+
+.disclosure{
+    background:#fff;
+    border:1px solid #e2e7ef;
+    color:#667085;
+    padding:16px;
+    border-radius:12px;
+    font-size:11px;
+    line-height:1.6;
+    text-align:center;
+    margin-top:18px;
+}
+
+footer{
+    text-align:center;
+    color:#98a1b2;
+    font-size:11px;
+    padding:15px 0 30px;
+}
+
+@media(max-width:500px){
+    .bank-grid{
+        grid-template-columns:1fr;
+    }
+
+    .balance{
+        font-size:32px;
+    }
+
+    .status{
+        padding:6px 8px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="dashboard">
+<div class="header">
+    <h1>ACCOUNT PANEL</h1>
+    <p>Resumen de bonificación</p>
+</div>
 
-  <!-- HEADER -->
+<div class="container">
 
-  <div class="header">
+    <!-- PROFILE -->
+    <div class="card">
+        <div class="profile">
+            <div class="avatar">CG</div>
 
-    <div class="brand">
-      PANEL DE CUENTA
+            <div>
+                <h2>Cony Guerra</h2>
+                <span>Personal Account</span>
+            </div>
+
+            <div class="status">ACTIVE</div>
+        </div>
     </div>
-
-    <div class="name">
-      Corny Guerra
-    </div>
-
-    <div class="subtitle">
-      Resumen de bonificación
-    </div>
-
-  </div>
-
-
-  <div class="content">
 
     <!-- BALANCE -->
-
     <div class="card">
 
-      <div class="label">
-        Bono / Ganancia
-      </div>
+        <div class="label">Available Balance</div>
 
-      <div class="amount">
-        $1,233.55
-      </div>
+        <div class="balance">
+            $1,233.55
+        </div>
 
-      <div class="status">
-        Active
-      </div>
+        <div class="divider"></div>
+
+        <div class="fee-row">
+            <div>
+                <div class="label">Processing Fee</div>
+                <div class="fee">$25.00</div>
+            </div>
+
+            <div class="paid">
+                FEE PAID
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="label">Withdrawal Processing Time</div>
+
+        <div class="timer">
+            <div class="time-box">
+                <strong id="hours">20</strong>
+                <span>HOURS</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="minutes">12</strong>
+                <span>MINUTES</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="seconds">33</strong>
+                <span>SECONDS</span>
+            </div>
+        </div>
 
     </div>
 
-
-    <!-- FEE + STATUS -->
-
-    <div class="grid">
-
-      <div class="card">
-
-        <div class="label">
-          Fee
-        </div>
-
-        <div class="value">
-          $25
-        </div>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="label">
-          Status
-        </div>
-
-        <div class="value">
-          Active
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- COUNTDOWN -->
-
-    <div class="card timer">
-
-      <div class="timer-title">
-        CUENTA REGRESIVA
-      </div>
-
-      <div id="countdown">
-        20:12:33
-      </div>
-
-    </div>
-
-
-    <!-- WITHDRAW -->
-
+    <!-- WITHDRAWAL -->
     <div class="card">
 
-      <div class="bank-title">
-        Retiro
-      </div>
+        <div class="section-title">
+            Withdraw to Bank
+        </div>
 
-      <div class="action-row">
-
-        <button class="action" disabled>
-          Withdraw
+        <button class="withdraw-main" disabled>
+            Withdraw Balance
         </button>
 
-        <button class="action" disabled>
-          Withdraw to Bank
-        </button>
+        <div class="bank-grid">
 
-      </div>
+            <button class="bank" onclick="openBank('agricola')">
+                Banco Agrícola
+            </button>
 
-    </div>
+            <button class="bank" onclick="openBank('cuscatlan')">
+                Banco Cuscatlán
+            </button>
 
+            <button class="bank" onclick="openBank('davivienda')">
+                Banco Davivienda Salvadoreño
+            </button>
 
-    <!-- BANK SELECTION -->
+            <button class="bank" onclick="openBank('promerica')">
+                Banco Promerica
+            </button>
 
-    <div class="card">
+            <button class="bank" onclick="openBank('hipotecario')">
+                Banco Hipotecario
+            </button>
 
-      <div class="bank-title">
-        Seleccionar banco de El Salvador
-      </div>
+            <button class="bank" onclick="openBank('fomento')">
+                Banco de Fomento Agropecuario
+            </button>
 
+            <button class="bank" onclick="openBank('industrial')">
+                Banco Industrial El Salvador
+            </button>
 
-      <button class="bank" disabled>
-        <strong>Banco Agrícola</strong>
-        <span>Seleccionar banco</span>
-      </button>
-
-
-      <button class="bank" disabled>
-        <strong>Banco Cuscatlán</strong>
-        <span>Seleccionar banco</span>
-      </button>
-
-
-      <button class="bank" disabled>
-        <strong>Banco Davivienda Salvadoreño</strong>
-        <span>Seleccionar banco</span>
-      </button>
+        </div>
 
 
-      <button class="bank" disabled>
-        <strong>Banco Promerica</strong>
-        <span>Seleccionar banco</span>
-      </button>
+        <!-- AGRICOLA -->
+        <div class="bank-form" id="agricola">
+
+            <h3>Banco Agrícola — Bank Details</h3>
+
+            <div class="input-group">
+                <label>Account Holder Name</label>
+                <input type="text" placeholder="Enter account holder name">
+            </div>
+
+            <div class="input-group">
+                <label>Account Number</label>
+                <input type="text" placeholder="Enter account number">
+            </div>
+
+            <button class="submit" onclick="submitWithdrawal('agricola')">
+                Submit Withdrawal
+            </button>
+
+        </div>
 
 
-      <button class="bank" disabled>
-        <strong>Banco Hipotecario</strong>
-        <span>Seleccionar banco</span>
-      </button>
+        <!-- CUSCATLAN -->
+        <div class="bank-form" id="cuscatlan">
+
+            <h3>Banco Cuscatlán — Bank Details</h3>
+
+            <div class="processing-fee">
+
+                Processing Fee
+
+                <strong>$15.00</strong>
+
+                <div class="note">
+                    Prototype amount only — no payment is required.
+                </div>
+
+            </div>
+
+            <div class="input-group">
+                <label>Account Holder Name</label>
+                <input type="text" placeholder="Enter account holder name">
+            </div>
+
+            <div class="input-group">
+                <label>Account Number</label>
+                <input type="text" placeholder="Enter account number">
+            </div>
+
+            <button class="submit" onclick="submitWithdrawal('cuscatlan')">
+                Submit Withdrawal
+            </button>
+
+        </div>
 
 
-      <button class="bank" disabled>
-        <strong>Banco de Fomento Agropecuario</strong>
-        <span>Seleccionar banco</span>
-      </button>
+        <!-- DAVIVIENDA -->
+        <div class="bank-form" id="davivienda">
+
+            <h3>Banco Davivienda Salvadoreño — Bank Details</h3>
+
+            <div class="input-group">
+                <label>Account Holder Name</label>
+                <input type="text" placeholder="Enter account holder name">
+            </div>
+
+            <div class="input-group">
+                <label>Account Number</label>
+                <input type="text" placeholder="Enter account number">
+            </div>
+
+            <button class="submit" onclick="submitWithdrawal('davivienda')">
+                Submit Withdrawal
+            </button>
+
+        </div>
 
 
-      <button class="bank" disabled>
-        <strong>Banco Industrial El Salvador</strong>
-        <span>Seleccionar banco</span>
-      </button>
+        <!-- PROMERICA -->
+        <div class="bank-form" id="promerica">
+
+            <h3>Banco Promerica — Bank Details</h3>
+
+            <div class="input-group">
+                <label>Account Holder Name</label>
+                <input type="text" placeholder="Enter account holder name">
+            </div>
+
+            <div class="input-group">
+                <label>Account Number</label>
+                <input type="text" placeholder="Enter account number">
+            </div>
+
+            <button class="submit" onclick="submitWithdrawal('promerica')">
+                Submit Withdrawal
+            </button>
+
+        </div>
+
+
+        <!-- HIPOTECARIO -->
+        <div class="bank-form" id="hipotecario">
+
+            <h3>Banco Hipotecario — Bank Details</h3>
+
+            <div class="input-group">
+                <label>Account Holder Name</label>
+                <input type="text" placeholder="Enter account holder name">
+            </div>
+
+            <div class="input-group">
+                <label>Account Number</label>
+                <input type="text" placeholder="Enter account number">
+            </div>
+
+            <button class="submit" onclick="submitWithdrawal('hipotecario')">
+                Submit Withdrawal
+            </button>
+
+        </div>
+
+
+        <!-- FOMENTO -->
+        <div class="bank-form" id="fomento">
+
+            <h3>Banco de Fomento Agropecuario — Bank Details</h3>
+
+            <div class="input-group">
+                <label>Account Holder Name</label>
+                <input type="text" placeholder="Enter account holder name">
+            </div>
+
+            <div class="input-group">
+                <label>Account Number</label>
+                <input type="text" placeholder="Enter account number">
+            </div>
+
+            <button class="submit" onclick="submitWithdrawal('fomento')">
+                Submit Withdrawal
+            </button>
+
+        </div>
+
+
+        <!-- INDUSTRIAL -->
+        <div class="bank-form" id="industrial">
+
+            <h3>Banco Industrial El Salvador — Bank Details</h3>
+
+            <div class="input-group">
+                <label>Account Holder Name</label>
+                <input type="text" placeholder="Enter account holder name">
+            </div>
+
+            <div class="input-group">
+                <label>Account Number</label>
+                <input type="text" placeholder="Enter account number">
+            </div>
+
+            <button class="submit" onclick="submitWithdrawal('industrial')">
+                Submit Withdrawal
+            </button>
+
+        </div>
 
     </div>
 
 
     <!-- VERIFICATION -->
+    <div class="card">
 
-    <div class="card verification">
-
-      <div class="verification-title">
-        Verificación
-      </div>
-
-      <div class="verify-item">
-
-        <div class="check">
-          ✓
+        <div class="section-title">
+            Verification
         </div>
 
-        <div>
-          Facebook — indicador de verificación
+        <div class="verify">
+
+            <div class="verify-row">
+
+                <div class="verify-icon">
+                    f
+                </div>
+
+                <div>
+                    <strong>Facebook</strong>
+                    <span>Verification indicator</span>
+                </div>
+
+                <div class="check">
+                    ✓
+                </div>
+
+            </div>
+
+
+            <div class="verify-row">
+
+                <div class="verify-icon">
+                    SV
+                </div>
+
+                <div>
+                    <strong>El Salvador</strong>
+                    <span>Verification indicator</span>
+                </div>
+
+                <div class="check">
+                    ✓
+                </div>
+
+            </div>
+
         </div>
 
-      </div>
-
-
-      <div class="verify-item">
-
-        <div class="check">
-          ✓
+        <div class="note" style="margin-top:14px;">
+            These indicators are visual elements of the interface and do not constitute
+            official certification by Facebook, Meta, the Government of El Salvador,
+            or any financial institution.
         </div>
-
-        <div>
-          El Salvador — indicador de verificación
-        </div>
-
-      </div>
-
-
-      <div class="verify-note">
-        Estos indicadores son elementos visuales de la interfaz
-        y no constituyen una certificación oficial.
-      </div>
 
     </div>
 
 
-    <!-- FOOTER -->
+    <!-- DISCLOSURE -->
+    <div class="disclosure">
 
-    <div class="footer">
-      © 2026 Corny Guerra
-    </div>
-
-
-    <!-- ONLY DISCLOSURE -->
-
-    <div class="notice">
-
-      This is a demonstration interface only. The displayed balance,
-      fee, countdown and bank-selection controls do not represent
-      a verified financial account or actual withdrawal requirement.
-      No payment should be made based solely on this page.
+        This is a prototype interface only. The displayed balance, fee status,
+        countdown and bank-selection controls do not represent a verified financial
+        account or an actual withdrawal requirement. No payment should be made
+        based solely on this page.
 
     </div>
 
-  </div>
+
+    <footer>
+        © 2026 Cony Guerra
+    </footer>
 
 </div>
 
 
 <script>
 
-/* PERSISTENT COUNTDOWN */
+/* =========================
+   COUNTDOWN TIMER
+========================= */
 
-const STORAGE_KEY =
-  "corny_guerra_timer";
+const TIMER_KEY = "cony_guerra_timer";
 
-const duration =
-  (20 * 60 * 60) +
-  (12 * 60) +
-  33;
+let endTime = localStorage.getItem(TIMER_KEY);
 
-let expiry =
-  localStorage.getItem(STORAGE_KEY);
+if(!endTime){
 
-if (!expiry) {
+    endTime = Date.now() + (
+        (20 * 60 * 60) +
+        (12 * 60) +
+        33
+    ) * 1000;
 
-  expiry =
-    Date.now() + duration * 1000;
+    localStorage.setItem(TIMER_KEY,endTime);
+}
 
-  localStorage.setItem(
-    STORAGE_KEY,
-    expiry
-  );
+function updateTimer(){
+
+    const remaining = Math.max(
+        0,
+        Number(endTime) - Date.now()
+    );
+
+    const totalSeconds = Math.floor(
+        remaining / 1000
+    );
+
+    const hours = Math.floor(
+        totalSeconds / 3600
+    );
+
+    const minutes = Math.floor(
+        (totalSeconds % 3600) / 60
+    );
+
+    const seconds =
+        totalSeconds % 60;
+
+    document.getElementById("hours")
+        .textContent =
+        String(hours).padStart(2,"0");
+
+    document.getElementById("minutes")
+        .textContent =
+        String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds")
+        .textContent =
+        String(seconds).padStart(2,"0");
+
+    if(remaining <= 0){
+
+        clearInterval(timerInterval);
+
+    }
 
 }
 
-expiry = Number(expiry);
-
-
-function updateTimer() {
-
-  const remaining =
-    Math.max(0, expiry - Date.now());
-
-  const total =
-    Math.floor(remaining / 1000);
-
-  const hours =
-    Math.floor(total / 3600);
-
-  const minutes =
-    Math.floor((total % 3600) / 60);
-
-  const seconds =
-    total % 60;
-
-
-  document.getElementById(
-    "countdown"
-  ).textContent =
-
-    String(hours).padStart(2, "0")
-    + ":" +
-    String(minutes).padStart(2, "0")
-    + ":" +
-    String(seconds).padStart(2, "0");
-
-
-  if (remaining <= 0) {
-    clearInterval(timer);
-  }
-
-}
-
+const timerInterval =
+    setInterval(updateTimer,1000);
 
 updateTimer();
 
-const timer =
-  setInterval(
-    updateTimer,
-    1000
-  );
+
+/* =========================
+   BANK SELECTION
+========================= */
+
+function openBank(bankId){
+
+    const forms =
+        document.querySelectorAll(".bank-form");
+
+    forms.forEach(function(form){
+
+        form.classList.remove("active");
+
+    });
+
+    const selected =
+        document.getElementById(bankId);
+
+    if(selected){
+
+        selected.classList.add("active");
+
+        selected.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+    }
+
+}
+
+
+/* =========================
+   LOCAL PROTOTYPE SUBMISSION
+========================= */
+
+function submitWithdrawal(bankId){
+
+    const form =
+        document.getElementById(bankId);
+
+    if(!form) return;
+
+    form.innerHTML = `
+
+        <div class="success">
+
+            <strong>✓ Submitted Withdrawal</strong>
+
+            Your withdrawal request has been recorded
+            as a prototype interaction.
+
+            <div class="note">
+
+                Prototype status only — no withdrawal was
+                submitted to a bank or payment provider.
+
+            </div>
+
+        </div>
+
+    `;
+
+}
 
 </script>
 
