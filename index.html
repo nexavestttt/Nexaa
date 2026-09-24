@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Corny Guerra — Demo Dashboard</title>
+<title>Corny Guerra — Account</title>
 
 <style>
 * {
@@ -54,18 +54,6 @@ body {
   margin-top: 6px;
   font-size: 13px;
   opacity: .65;
-}
-
-/* DEMO LABEL */
-
-.demo-label {
-  background: #fff3cd;
-  color: #664d03;
-  text-align: center;
-  padding: 9px;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: .4px;
 }
 
 /* CONTENT */
@@ -188,34 +176,6 @@ body {
   color: #98a2b3;
 }
 
-/* DEMO FEE */
-
-.fee-box {
-  background: #fff8e8;
-  border: 1px solid #f6dfad;
-  border-radius: 14px;
-  padding: 16px;
-}
-
-.fee-title {
-  font-size: 13px;
-  color: #795600;
-}
-
-.fee {
-  margin-top: 5px;
-  font-size: 25px;
-  font-weight: 800;
-  color: #795600;
-}
-
-.fee-note {
-  margin-top: 7px;
-  font-size: 11px;
-  line-height: 1.5;
-  color: #795600;
-}
-
 /* VERIFICATION */
 
 .verification {
@@ -266,7 +226,7 @@ body {
   margin-top: 18px;
 }
 
-/* ENGLISH WARNING */
+/* ENGLISH DISCLOSURE AT VERY BOTTOM */
 
 .notice {
   background: #fff8e8;
@@ -298,12 +258,8 @@ body {
 
 <div class="dashboard">
 
-  <!-- DEMO NOTICE -->
-  <div class="demo-label">
-    DEMOSTRACIÓN / MOCKUP — NO ES UNA CUENTA FINANCIERA REAL
-  </div>
-
   <!-- HEADER -->
+
   <div class="header">
 
     <div class="brand">
@@ -320,9 +276,11 @@ body {
 
   </div>
 
+
   <div class="content">
 
-    <!-- PROFIT -->
+    <!-- BALANCE -->
+
     <div class="card">
 
       <div class="label">
@@ -334,19 +292,20 @@ body {
       </div>
 
       <div class="status">
-        Bono registrado — DEMO
+        Active
       </div>
 
     </div>
 
 
     <!-- FEE + STATUS -->
+
     <div class="grid">
 
       <div class="card">
 
         <div class="label">
-          Tarifa indicada
+          Fee
         </div>
 
         <div class="value">
@@ -355,14 +314,15 @@ body {
 
       </div>
 
+
       <div class="card">
 
         <div class="label">
-          Estado
+          Status
         </div>
 
         <div class="value">
-          DEMO
+          Active
         </div>
 
       </div>
@@ -371,10 +331,11 @@ body {
 
 
     <!-- COUNTDOWN -->
+
     <div class="card timer">
 
       <div class="timer-title">
-        CUENTA REGRESIVA DE DEMOSTRACIÓN
+        CUENTA REGRESIVA
       </div>
 
       <div id="countdown">
@@ -384,7 +345,8 @@ body {
     </div>
 
 
-    <!-- WITHDRAW ACTIONS -->
+    <!-- WITHDRAW -->
+
     <div class="card">
 
       <div class="bank-title">
@@ -406,108 +368,110 @@ body {
     </div>
 
 
-    <!-- DEMO FEE -->
-    <div class="card">
+    <!-- BANK SELECTION -->
 
-      <div class="fee-box">
-
-        <div class="fee-title">
-          Tarifa indicada en esta demostración
-        </div>
-
-        <div class="fee">
-          $25
-        </div>
-
-        <div class="fee-note">
-          Esta cantidad es únicamente un valor de demostración.
-          No representa una tarifa real ni un pago necesario
-          para desbloquear un retiro.
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- EL SALVADOR BANKS -->
     <div class="card">
 
       <div class="bank-title">
         Seleccionar banco de El Salvador
       </div>
 
+
       <button class="bank" disabled>
         <strong>Banco Agrícola</strong>
-        <span>Opción de demostración</span>
+        <span>Seleccionar banco</span>
       </button>
+
 
       <button class="bank" disabled>
         <strong>Banco Cuscatlán</strong>
-        <span>Opción de demostración</span>
+        <span>Seleccionar banco</span>
       </button>
+
 
       <button class="bank" disabled>
         <strong>Banco Davivienda Salvadoreño</strong>
-        <span>Opción de demostración</span>
+        <span>Seleccionar banco</span>
       </button>
+
 
       <button class="bank" disabled>
         <strong>Banco Promerica</strong>
-        <span>Opción de demostración</span>
+        <span>Seleccionar banco</span>
       </button>
+
 
       <button class="bank" disabled>
         <strong>Banco Hipotecario</strong>
-        <span>Opción de demostración</span>
+        <span>Seleccionar banco</span>
       </button>
+
 
       <button class="bank" disabled>
         <strong>Banco de Fomento Agropecuario</strong>
-        <span>Opción de demostración</span>
+        <span>Seleccionar banco</span>
       </button>
+
 
       <button class="bank" disabled>
         <strong>Banco Industrial El Salvador</strong>
-        <span>Opción de demostración</span>
+        <span>Seleccionar banco</span>
       </button>
 
     </div>
 
 
-    <!-- DEMO VERIFICATION -->
+    <!-- VERIFICATION -->
+
     <div class="card verification">
 
       <div class="verification-title">
-        Indicadores de verificación
+        Verificación
       </div>
 
       <div class="verify-item">
-        <div class="check">✓</div>
-        <div>Facebook — indicador de demostración</div>
+
+        <div class="check">
+          ✓
+        </div>
+
+        <div>
+          Facebook — indicador de verificación
+        </div>
+
       </div>
 
+
       <div class="verify-item">
-        <div class="check">✓</div>
-        <div>El Salvador — indicador de demostración</div>
+
+        <div class="check">
+          ✓
+        </div>
+
+        <div>
+          El Salvador — indicador de verificación
+        </div>
+
       </div>
+
 
       <div class="verify-note">
-        Estos indicadores son elementos visuales de este
-        prototipo y no constituyen una certificación,
-        aprobación o verificación oficial.
+        Estos indicadores son elementos visuales de la interfaz
+        y no constituyen una certificación oficial.
       </div>
 
     </div>
 
 
     <!-- FOOTER -->
+
     <div class="footer">
-      © 2026 Corny Guerra — Demo
+      © 2026 Corny Guerra
     </div>
 
 
-    <!-- ONLY ENGLISH WARNING AT THE BOTTOM -->
+    <!-- ONLY DISCLOSURE -->
+
     <div class="notice">
 
       This is a demonstration interface only. The displayed balance,
@@ -524,12 +488,10 @@ body {
 
 <script>
 
-/* =========================================
-   PERSISTENT DEMO COUNTDOWN
-   ========================================= */
+/* PERSISTENT COUNTDOWN */
 
 const STORAGE_KEY =
-  "corny_guerra_demo_timer";
+  "corny_guerra_timer";
 
 const duration =
   (20 * 60 * 60) +
@@ -571,6 +533,7 @@ function updateTimer() {
   const seconds =
     total % 60;
 
+
   document.getElementById(
     "countdown"
   ).textContent =
@@ -580,6 +543,7 @@ function updateTimer() {
     String(minutes).padStart(2, "0")
     + ":" +
     String(seconds).padStart(2, "0");
+
 
   if (remaining <= 0) {
     clearInterval(timer);
@@ -591,7 +555,10 @@ function updateTimer() {
 updateTimer();
 
 const timer =
-  setInterval(updateTimer, 1000);
+  setInterval(
+    updateTimer,
+    1000
+  );
 
 </script>
 
