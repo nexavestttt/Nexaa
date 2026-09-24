@@ -1,415 +1,599 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel de Ganancias — Demo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<title>Corny Guerra — Demo Dashboard</title>
 
-    body {
-      min-height: 100vh;
-      background: #f4f7fb;
-      color: #172033;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-    .dashboard {
-      width: 100%;
-      max-width: 480px;
-      background: #fff;
-      border-radius: 22px;
-      box-shadow: 0 15px 45px rgba(0,0,0,.10);
-      overflow: hidden;
-    }
+body {
+  min-height: 100vh;
+  background: #f3f6fa;
+  color: #172033;
+  padding: 20px;
+}
 
-    .demo-banner {
-      background: #fff3cd;
-      color: #664d03;
-      text-align: center;
-      padding: 9px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .4px;
-    }
+.dashboard {
+  max-width: 500px;
+  margin: auto;
+  background: #fff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(0,0,0,.10);
+}
 
-    .header {
-      background: #101828;
-      color: white;
-      padding: 28px 25px;
-    }
+/* HEADER */
 
-    .brand {
-      font-size: 14px;
-      font-weight: 600;
-      opacity: .75;
-      margin-bottom: 22px;
-      letter-spacing: .5px;
-    }
+.header {
+  background: #101828;
+  color: white;
+  padding: 28px 24px;
+}
 
-    .welcome {
-      font-size: 14px;
-      opacity: .75;
-      margin-bottom: 6px;
-    }
+.brand {
+  font-size: 12px;
+  opacity: .65;
+  letter-spacing: .5px;
+  margin-bottom: 18px;
+}
 
-    .name {
-      font-size: 25px;
-      font-weight: 700;
-    }
+.name {
+  font-size: 28px;
+  font-weight: 800;
+}
 
-    .content {
-      padding: 25px;
-    }
+.subtitle {
+  margin-top: 6px;
+  font-size: 13px;
+  opacity: .65;
+}
 
-    .profit-card {
-      background: #f7faf8;
-      border: 1px solid #e3eee7;
-      border-radius: 17px;
-      padding: 24px;
-      margin-bottom: 18px;
-    }
+/* DEMO LABEL */
 
-    .label {
-      font-size: 13px;
-      color: #667085;
-      margin-bottom: 9px;
-    }
+.demo-label {
+  background: #fff3cd;
+  color: #664d03;
+  text-align: center;
+  padding: 9px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .4px;
+}
 
-    .profit {
-      font-size: 36px;
-      font-weight: 800;
-      color: #087443;
-      letter-spacing: -1px;
-    }
+/* CONTENT */
 
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      margin-top: 13px;
-      padding: 7px 11px;
-      border-radius: 20px;
-      background: #eaf8f0;
-      color: #087443;
-      font-size: 12px;
-      font-weight: 600;
-    }
+.content {
+  padding: 24px;
+}
 
-    .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #12b76a;
-    }
+.card {
+  border: 1px solid #eaecf0;
+  border-radius: 17px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
 
-    .info {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-bottom: 20px;
-    }
+.label {
+  color: #667085;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
 
-    .info-box {
-      border: 1px solid #eaecf0;
-      border-radius: 15px;
-      padding: 18px;
-      background: #fff;
-    }
+.amount {
+  font-size: 36px;
+  font-weight: 800;
+  color: #087443;
+}
 
-    .info-value {
-      font-size: 20px;
-      font-weight: 700;
-      margin-top: 6px;
-    }
+.status {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 7px 11px;
+  border-radius: 20px;
+  background: #eaf8f0;
+  color: #087443;
+  font-size: 12px;
+  font-weight: 700;
+}
 
-    .countdown-box {
-      background: #101828;
-      color: white;
-      border-radius: 18px;
-      padding: 22px;
-      text-align: center;
-      margin-bottom: 18px;
-    }
+/* INFORMATION */
 
-    .countdown-title {
-      font-size: 13px;
-      opacity: .7;
-      margin-bottom: 12px;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
 
-    #countdown {
-      font-size: 38px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      font-variant-numeric: tabular-nums;
-    }
+.value {
+  font-size: 19px;
+  font-weight: 700;
+  margin-top: 5px;
+}
 
-    .countdown-note {
-      font-size: 11px;
-      opacity: .55;
-      margin-top: 10px;
-    }
+/* COUNTDOWN */
 
-    .withdraw-btn {
-      width: 100%;
-      padding: 16px;
-      border: none;
-      border-radius: 14px;
-      background: #d0d5dd;
-      color: #344054;
-      font-weight: 700;
-      font-size: 15px;
-      cursor: not-allowed;
-      margin-bottom: 18px;
-    }
+.timer {
+  background: #101828;
+  color: white;
+  text-align: center;
+}
 
-    .notice {
-      background: #fff8e8;
-      border: 1px solid #f6dfad;
-      color: #795600;
-      padding: 14px;
-      border-radius: 13px;
-      font-size: 12px;
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
+.timer-title {
+  font-size: 12px;
+  opacity: .65;
+  margin-bottom: 10px;
+}
 
-    .footer {
-      text-align: center;
-      color: #98a2b3;
-      font-size: 11px;
-      padding-top: 5px;
-    }
+#countdown {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
 
-    @media (max-width: 400px) {
-      .profit {
-        font-size: 31px;
-      }
+/* WITHDRAW BUTTONS */
 
-      #countdown {
-        font-size: 32px;
-      }
-    }
-  </style>
+.action-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.action {
+  border: none;
+  border-radius: 12px;
+  padding: 14px 10px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: not-allowed;
+  background: #d0d5dd;
+  color: #475467;
+}
+
+/* BANKS */
+
+.bank-title {
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.bank {
+  width: 100%;
+  border: 1px solid #d0d5dd;
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  margin-top: 9px;
+  text-align: left;
+  cursor: not-allowed;
+}
+
+.bank strong {
+  display: block;
+  font-size: 14px;
+}
+
+.bank span {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  color: #98a2b3;
+}
+
+/* DEMO FEE */
+
+.fee-box {
+  background: #fff8e8;
+  border: 1px solid #f6dfad;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.fee-title {
+  font-size: 13px;
+  color: #795600;
+}
+
+.fee {
+  margin-top: 5px;
+  font-size: 25px;
+  font-weight: 800;
+  color: #795600;
+}
+
+.fee-note {
+  margin-top: 7px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #795600;
+}
+
+/* VERIFICATION */
+
+.verification {
+  border: 1px solid #eaecf0;
+  border-radius: 15px;
+  padding: 16px;
+}
+
+.verification-title {
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.verify-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 0;
+  font-size: 12px;
+}
+
+.check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #eaf8f0;
+  color: #087443;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.verify-note {
+  margin-top: 8px;
+  font-size: 10px;
+  color: #98a2b3;
+  line-height: 1.5;
+}
+
+/* FOOTER */
+
+.footer {
+  text-align: center;
+  color: #98a2b3;
+  font-size: 11px;
+  margin-top: 18px;
+}
+
+/* ENGLISH WARNING */
+
+.notice {
+  background: #fff8e8;
+  border: 1px solid #f6dfad;
+  color: #795600;
+  border-radius: 13px;
+  padding: 14px;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: 20px;
+  text-align: left;
+}
+
+@media(max-width:400px) {
+
+  .amount {
+    font-size: 31px;
+  }
+
+  #countdown {
+    font-size: 32px;
+  }
+
+}
+</style>
 </head>
 
 <body>
 
-  <div class="dashboard">
+<div class="dashboard">
 
-    <div class="demo-banner">
-      DEMONSTRATION / MOCKUP
+  <!-- DEMO NOTICE -->
+  <div class="demo-label">
+    DEMOSTRACIÓN / MOCKUP — NO ES UNA CUENTA FINANCIERA REAL
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+
+    <div class="brand">
+      PANEL DE CUENTA
     </div>
 
-    <div class="header">
+    <div class="name">
+      Corny Guerra
+    </div>
 
-      <div class="brand">
-        PANEL DE CUENTA
+    <div class="subtitle">
+      Resumen de bonificación
+    </div>
+
+  </div>
+
+  <div class="content">
+
+    <!-- PROFIT -->
+    <div class="card">
+
+      <div class="label">
+        Bono / Ganancia
       </div>
 
-      <div class="welcome">
-        Titular de la cuenta
+      <div class="amount">
+        $1,233.55
       </div>
 
-      <div class="name">
-        Cony Guerra
+      <div class="status">
+        Bono registrado — DEMO
       </div>
 
     </div>
 
-    <div class="content">
 
-      <div class="profit-card">
+    <!-- FEE + STATUS -->
+    <div class="grid">
+
+      <div class="card">
 
         <div class="label">
-          Ganancia / Bono
+          Tarifa indicada
         </div>
 
-        <div class="profit">
-          $1,233.55
-        </div>
-
-        <div class="status">
-          <span class="dot"></span>
-          Bono registrado
+        <div class="value">
+          $25
         </div>
 
       </div>
 
-      <div class="info">
+      <div class="card">
 
-        <div class="info-box">
-
-          <div class="label">
-            Tarifa de retiro
-          </div>
-
-          <div class="info-value">
-            $25.00
-          </div>
-
+        <div class="label">
+          Estado
         </div>
 
-        <div class="info-box">
-
-          <div class="label">
-            Estado de cuenta
-          </div>
-
-          <div class="info-value">
-            Activa
-          </div>
-
+        <div class="value">
+          DEMO
         </div>
 
       </div>
 
-      <div class="countdown-box">
+    </div>
 
-        <div class="countdown-title">
-          CUENTA REGRESIVA DE RETIRO
+
+    <!-- COUNTDOWN -->
+    <div class="card timer">
+
+      <div class="timer-title">
+        CUENTA REGRESIVA DE DEMOSTRACIÓN
+      </div>
+
+      <div id="countdown">
+        20:12:33
+      </div>
+
+    </div>
+
+
+    <!-- WITHDRAW ACTIONS -->
+    <div class="card">
+
+      <div class="bank-title">
+        Retiro
+      </div>
+
+      <div class="action-row">
+
+        <button class="action" disabled>
+          Withdraw
+        </button>
+
+        <button class="action" disabled>
+          Withdraw to Bank
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- DEMO FEE -->
+    <div class="card">
+
+      <div class="fee-box">
+
+        <div class="fee-title">
+          Tarifa indicada en esta demostración
         </div>
 
-        <div id="countdown">
-          20:12:33
+        <div class="fee">
+          $25
         </div>
 
-        <div class="countdown-note">
-          El tiempo continúa sin reiniciarse
+        <div class="fee-note">
+          Esta cantidad es únicamente un valor de demostración.
+          No representa una tarifa real ni un pago necesario
+          para desbloquear un retiro.
         </div>
 
       </div>
 
-      <button
-        class="withdraw-btn"
-        type="button"
-        disabled
-      >
-        Retiro restringido
+    </div>
+
+
+    <!-- EL SALVADOR BANKS -->
+    <div class="card">
+
+      <div class="bank-title">
+        Seleccionar banco de El Salvador
+      </div>
+
+      <button class="bank" disabled>
+        <strong>Banco Agrícola</strong>
+        <span>Opción de demostración</span>
       </button>
 
-      <div class="notice">
-        This dashboard is for account information
-        and demonstration purposes only. It does not
-        verify a real balance, bonus, fee, or withdrawal.
-        Withdrawal availability should be verified
-        through the applicable financial service.
+      <button class="bank" disabled>
+        <strong>Banco Cuscatlán</strong>
+        <span>Opción de demostración</span>
+      </button>
+
+      <button class="bank" disabled>
+        <strong>Banco Davivienda Salvadoreño</strong>
+        <span>Opción de demostración</span>
+      </button>
+
+      <button class="bank" disabled>
+        <strong>Banco Promerica</strong>
+        <span>Opción de demostración</span>
+      </button>
+
+      <button class="bank" disabled>
+        <strong>Banco Hipotecario</strong>
+        <span>Opción de demostración</span>
+      </button>
+
+      <button class="bank" disabled>
+        <strong>Banco de Fomento Agropecuario</strong>
+        <span>Opción de demostración</span>
+      </button>
+
+      <button class="bank" disabled>
+        <strong>Banco Industrial El Salvador</strong>
+        <span>Opción de demostración</span>
+      </button>
+
+    </div>
+
+
+    <!-- DEMO VERIFICATION -->
+    <div class="card verification">
+
+      <div class="verification-title">
+        Indicadores de verificación
       </div>
 
-      <div class="footer">
-        © 2026 Panel de Cuenta — Demo
+      <div class="verify-item">
+        <div class="check">✓</div>
+        <div>Facebook — indicador de demostración</div>
       </div>
+
+      <div class="verify-item">
+        <div class="check">✓</div>
+        <div>El Salvador — indicador de demostración</div>
+      </div>
+
+      <div class="verify-note">
+        Estos indicadores son elementos visuales de este
+        prototipo y no constituyen una certificación,
+        aprobación o verificación oficial.
+      </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <div class="footer">
+      © 2026 Corny Guerra — Demo
+    </div>
+
+
+    <!-- ONLY ENGLISH WARNING AT THE BOTTOM -->
+    <div class="notice">
+
+      This is a demonstration interface only. The displayed balance,
+      fee, countdown and bank-selection controls do not represent
+      a verified financial account or actual withdrawal requirement.
+      No payment should be made based solely on this page.
 
     </div>
 
   </div>
 
+</div>
 
-  <script>
 
-    /*
-      PERSISTENT DEMO COUNTDOWN
+<script>
 
-      Starting time:
-      20 hours, 12 minutes, 33 seconds.
+/* =========================================
+   PERSISTENT DEMO COUNTDOWN
+   ========================================= */
 
-      The expiry timestamp is stored in localStorage,
-      so refreshing the page does not restart it.
-    */
+const STORAGE_KEY =
+  "corny_guerra_demo_timer";
 
-    const STORAGE_KEY =
-      "cony_demo_withdrawal_expiry";
+const duration =
+  (20 * 60 * 60) +
+  (12 * 60) +
+  33;
 
-    const countdownDuration =
-      (20 * 60 * 60) +
-      (12 * 60) +
-      33;
+let expiry =
+  localStorage.getItem(STORAGE_KEY);
 
-    let expiryTime =
-      localStorage.getItem(STORAGE_KEY);
+if (!expiry) {
 
-    if (!expiryTime) {
+  expiry =
+    Date.now() + duration * 1000;
 
-      expiryTime =
-        Date.now() +
-        (countdownDuration * 1000);
+  localStorage.setItem(
+    STORAGE_KEY,
+    expiry
+  );
 
-      localStorage.setItem(
-        STORAGE_KEY,
-        expiryTime
-      );
-    }
+}
 
-    expiryTime = Number(expiryTime);
+expiry = Number(expiry);
 
-    function updateCountdown() {
 
-      const now = Date.now();
+function updateTimer() {
 
-      const remaining =
-        Math.max(
-          0,
-          expiryTime - now
-        );
+  const remaining =
+    Math.max(0, expiry - Date.now());
 
-      const totalSeconds =
-        Math.floor(
-          remaining / 1000
-        );
+  const total =
+    Math.floor(remaining / 1000);
 
-      const hours =
-        Math.floor(
-          totalSeconds / 3600
-        );
+  const hours =
+    Math.floor(total / 3600);
 
-      const minutes =
-        Math.floor(
-          (totalSeconds % 3600) / 60
-        );
+  const minutes =
+    Math.floor((total % 3600) / 60);
 
-      const seconds =
-        totalSeconds % 60;
+  const seconds =
+    total % 60;
 
-      const formatted =
-        String(hours).padStart(2, "0") +
-        ":" +
-        String(minutes).padStart(2, "0") +
-        ":" +
-        String(seconds).padStart(2, "0");
+  document.getElementById(
+    "countdown"
+  ).textContent =
 
-      document.getElementById(
-        "countdown"
-      ).textContent = formatted;
+    String(hours).padStart(2, "0")
+    + ":" +
+    String(minutes).padStart(2, "0")
+    + ":" +
+    String(seconds).padStart(2, "0");
 
-      if (remaining <= 0) {
+  if (remaining <= 0) {
+    clearInterval(timer);
+  }
 
-        document.getElementById(
-          "countdown"
-        ).textContent = "00:00:00";
+}
 
-        clearInterval(timer);
-      }
-    }
 
-    updateCountdown();
+updateTimer();
 
-    const timer =
-      setInterval(
-        updateCountdown,
-        1000
-      );
+const timer =
+  setInterval(updateTimer, 1000);
 
-  </script>
+</script>
 
 </body>
 </html>
