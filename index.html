@@ -100,12 +100,6 @@ body{
     letter-spacing:-1px;
 }
 
-.balance small{
-    font-size:14px;
-    color:#667085;
-    font-weight:500;
-}
-
 .divider{
     height:1px;
     background:#edf0f4;
@@ -216,6 +210,22 @@ body{
     font-size:17px;
 }
 
+.processing-fee{
+    background:#fff8e7;
+    border:1px solid #f5df9d;
+    color:#805f00;
+    padding:13px;
+    border-radius:10px;
+    font-size:13px;
+    margin-bottom:14px;
+}
+
+.processing-fee strong{
+    display:block;
+    font-size:18px;
+    margin-top:3px;
+}
+
 .input-group{
     margin-bottom:13px;
 }
@@ -254,29 +264,6 @@ body{
 
 .submit:hover{
     background:#12578d;
-}
-
-.processing-fee{
-    background:#fff8e7;
-    border:1px solid #f5df9d;
-    color:#805f00;
-    padding:13px;
-    border-radius:10px;
-    font-size:13px;
-    margin-bottom:14px;
-}
-
-.processing-fee strong{
-    display:block;
-    font-size:16px;
-    margin-top:3px;
-}
-
-.note{
-    color:#667085;
-    font-size:11px;
-    margin-top:7px;
-    line-height:1.5;
 }
 
 .success{
@@ -362,10 +349,6 @@ footer{
     .balance{
         font-size:32px;
     }
-
-    .status{
-        padding:6px 8px;
-    }
 }
 </style>
 </head>
@@ -379,9 +362,9 @@ footer{
 
 <div class="container">
 
-    <!-- PROFILE -->
     <div class="card">
         <div class="profile">
+
             <div class="avatar">CG</div>
 
             <div>
@@ -389,14 +372,19 @@ footer{
                 <span>Personal Account</span>
             </div>
 
-            <div class="status">ACTIVE</div>
+            <div class="status">
+                ACTIVE
+            </div>
+
         </div>
     </div>
 
-    <!-- BALANCE -->
+
     <div class="card">
 
-        <div class="label">Available Balance</div>
+        <div class="label">
+            Available Balance
+        </div>
 
         <div class="balance">
             $1,233.55
@@ -405,21 +393,31 @@ footer{
         <div class="divider"></div>
 
         <div class="fee-row">
+
             <div>
-                <div class="label">Processing Fee</div>
-                <div class="fee">$25.00</div>
+                <div class="label">
+                    Processing Fee
+                </div>
+
+                <div class="fee">
+                    $25.00
+                </div>
             </div>
 
             <div class="paid">
                 FEE PAID
             </div>
+
         </div>
 
         <div class="divider"></div>
 
-        <div class="label">Withdrawal Processing Time</div>
+        <div class="label">
+            Withdrawal Processing Time
+        </div>
 
         <div class="timer">
+
             <div class="time-box">
                 <strong id="hours">20</strong>
                 <span>HOURS</span>
@@ -434,11 +432,12 @@ footer{
                 <strong id="seconds">33</strong>
                 <span>SECONDS</span>
             </div>
+
         </div>
 
     </div>
 
-    <!-- WITHDRAWAL -->
+
     <div class="card">
 
         <div class="section-title">
@@ -482,56 +481,68 @@ footer{
         </div>
 
 
-        <!-- AGRICOLA -->
+        <!-- BANCO AGRÍCOLA -->
+
         <div class="bank-form" id="agricola">
 
             <h3>Banco Agrícola — Bank Details</h3>
 
+            <div class="processing-fee">
+                Withdrawal Fee
+                <strong>$18.00</strong>
+            </div>
+
             <div class="input-group">
                 <label>Account Holder Name</label>
-                <input type="text" placeholder="Enter account holder name">
+                <input
+                    type="text"
+                    placeholder="Enter account holder name">
             </div>
 
             <div class="input-group">
                 <label>Account Number</label>
-                <input type="text" placeholder="Enter account number">
+                <input
+                    type="text"
+                    placeholder="Enter account number">
             </div>
 
-            <button class="submit" onclick="submitWithdrawal('agricola')">
+            <button
+                class="submit"
+                onclick="submitWithdrawal('agricola')">
                 Submit Withdrawal
             </button>
 
         </div>
 
 
-        <!-- CUSCATLAN -->
+        <!-- BANCO CUSCATLÁN -->
+
         <div class="bank-form" id="cuscatlan">
 
             <h3>Banco Cuscatlán — Bank Details</h3>
 
             <div class="processing-fee">
-
-                Processing Fee
-
-                <strong>$15.00</strong>
-
-                <div class="note">
-                    Prototype amount only — no payment is required.
-                </div>
-
+                Withdrawal Fee
+                <strong>$25.00</strong>
             </div>
 
             <div class="input-group">
                 <label>Account Holder Name</label>
-                <input type="text" placeholder="Enter account holder name">
+                <input
+                    type="text"
+                    placeholder="Enter account holder name">
             </div>
 
             <div class="input-group">
                 <label>Account Number</label>
-                <input type="text" placeholder="Enter account number">
+                <input
+                    type="text"
+                    placeholder="Enter account number">
             </div>
 
-            <button class="submit" onclick="submitWithdrawal('cuscatlan')">
+            <button
+                class="submit"
+                onclick="submitWithdrawal('cuscatlan')">
                 Submit Withdrawal
             </button>
 
@@ -539,21 +550,33 @@ footer{
 
 
         <!-- DAVIVIENDA -->
+
         <div class="bank-form" id="davivienda">
 
             <h3>Banco Davivienda Salvadoreño — Bank Details</h3>
 
+            <div class="processing-fee">
+                Withdrawal Fee
+                <strong>$18.00</strong>
+            </div>
+
             <div class="input-group">
                 <label>Account Holder Name</label>
-                <input type="text" placeholder="Enter account holder name">
+                <input
+                    type="text"
+                    placeholder="Enter account holder name">
             </div>
 
             <div class="input-group">
                 <label>Account Number</label>
-                <input type="text" placeholder="Enter account number">
+                <input
+                    type="text"
+                    placeholder="Enter account number">
             </div>
 
-            <button class="submit" onclick="submitWithdrawal('davivienda')">
+            <button
+                class="submit"
+                onclick="submitWithdrawal('davivienda')">
                 Submit Withdrawal
             </button>
 
@@ -561,21 +584,33 @@ footer{
 
 
         <!-- PROMERICA -->
+
         <div class="bank-form" id="promerica">
 
             <h3>Banco Promerica — Bank Details</h3>
 
+            <div class="processing-fee">
+                Withdrawal Fee
+                <strong>$18.00</strong>
+            </div>
+
             <div class="input-group">
                 <label>Account Holder Name</label>
-                <input type="text" placeholder="Enter account holder name">
+                <input
+                    type="text"
+                    placeholder="Enter account holder name">
             </div>
 
             <div class="input-group">
                 <label>Account Number</label>
-                <input type="text" placeholder="Enter account number">
+                <input
+                    type="text"
+                    placeholder="Enter account number">
             </div>
 
-            <button class="submit" onclick="submitWithdrawal('promerica')">
+            <button
+                class="submit"
+                onclick="submitWithdrawal('promerica')">
                 Submit Withdrawal
             </button>
 
@@ -583,21 +618,33 @@ footer{
 
 
         <!-- HIPOTECARIO -->
+
         <div class="bank-form" id="hipotecario">
 
             <h3>Banco Hipotecario — Bank Details</h3>
 
+            <div class="processing-fee">
+                Withdrawal Fee
+                <strong>$18.00</strong>
+            </div>
+
             <div class="input-group">
                 <label>Account Holder Name</label>
-                <input type="text" placeholder="Enter account holder name">
+                <input
+                    type="text"
+                    placeholder="Enter account holder name">
             </div>
 
             <div class="input-group">
                 <label>Account Number</label>
-                <input type="text" placeholder="Enter account number">
+                <input
+                    type="text"
+                    placeholder="Enter account number">
             </div>
 
-            <button class="submit" onclick="submitWithdrawal('hipotecario')">
+            <button
+                class="submit"
+                onclick="submitWithdrawal('hipotecario')">
                 Submit Withdrawal
             </button>
 
@@ -605,21 +652,33 @@ footer{
 
 
         <!-- FOMENTO -->
+
         <div class="bank-form" id="fomento">
 
             <h3>Banco de Fomento Agropecuario — Bank Details</h3>
 
+            <div class="processing-fee">
+                Withdrawal Fee
+                <strong>$18.00</strong>
+            </div>
+
             <div class="input-group">
                 <label>Account Holder Name</label>
-                <input type="text" placeholder="Enter account holder name">
+                <input
+                    type="text"
+                    placeholder="Enter account holder name">
             </div>
 
             <div class="input-group">
                 <label>Account Number</label>
-                <input type="text" placeholder="Enter account number">
+                <input
+                    type="text"
+                    placeholder="Enter account number">
             </div>
 
-            <button class="submit" onclick="submitWithdrawal('fomento')">
+            <button
+                class="submit"
+                onclick="submitWithdrawal('fomento')">
                 Submit Withdrawal
             </button>
 
@@ -627,21 +686,33 @@ footer{
 
 
         <!-- INDUSTRIAL -->
+
         <div class="bank-form" id="industrial">
 
             <h3>Banco Industrial El Salvador — Bank Details</h3>
 
+            <div class="processing-fee">
+                Withdrawal Fee
+                <strong>$18.00</strong>
+            </div>
+
             <div class="input-group">
                 <label>Account Holder Name</label>
-                <input type="text" placeholder="Enter account holder name">
+                <input
+                    type="text"
+                    placeholder="Enter account holder name">
             </div>
 
             <div class="input-group">
                 <label>Account Number</label>
-                <input type="text" placeholder="Enter account number">
+                <input
+                    type="text"
+                    placeholder="Enter account number">
             </div>
 
-            <button class="submit" onclick="submitWithdrawal('industrial')">
+            <button
+                class="submit"
+                onclick="submitWithdrawal('industrial')">
                 Submit Withdrawal
             </button>
 
@@ -651,6 +722,7 @@ footer{
 
 
     <!-- VERIFICATION -->
+
     <div class="card">
 
         <div class="section-title">
@@ -697,21 +769,22 @@ footer{
         </div>
 
         <div class="note" style="margin-top:14px;">
-            These indicators are visual elements of the interface and do not constitute
-            official certification by Facebook, Meta, the Government of El Salvador,
-            or any financial institution.
+            These indicators are visual elements of the interface and do not
+            constitute official certification by Facebook, Meta, the Government
+            of El Salvador, or any financial institution.
         </div>
 
     </div>
 
 
     <!-- DISCLOSURE -->
+
     <div class="disclosure">
 
         This is a prototype interface only. The displayed balance, fee status,
-        countdown and bank-selection controls do not represent a verified financial
-        account or an actual withdrawal requirement. No payment should be made
-        based solely on this page.
+        countdown and bank-selection controls do not represent a verified
+        financial account or an actual withdrawal requirement.
+        No payment should be made based solely on this page.
 
     </div>
 
@@ -725,9 +798,7 @@ footer{
 
 <script>
 
-/* =========================
-   COUNTDOWN TIMER
-========================= */
+/* COUNTDOWN */
 
 const TIMER_KEY = "cony_guerra_timer";
 
@@ -735,33 +806,42 @@ let endTime = localStorage.getItem(TIMER_KEY);
 
 if(!endTime){
 
-    endTime = Date.now() + (
-        (20 * 60 * 60) +
-        (12 * 60) +
-        33
-    ) * 1000;
+    endTime =
+        Date.now() +
+        (
+            (20 * 60 * 60) +
+            (12 * 60) +
+            33
+        ) * 1000;
 
-    localStorage.setItem(TIMER_KEY,endTime);
+    localStorage.setItem(
+        TIMER_KEY,
+        endTime
+    );
 }
 
 function updateTimer(){
 
-    const remaining = Math.max(
-        0,
-        Number(endTime) - Date.now()
-    );
+    const remaining =
+        Math.max(
+            0,
+            Number(endTime) - Date.now()
+        );
 
-    const totalSeconds = Math.floor(
-        remaining / 1000
-    );
+    const totalSeconds =
+        Math.floor(
+            remaining / 1000
+        );
 
-    const hours = Math.floor(
-        totalSeconds / 3600
-    );
+    const hours =
+        Math.floor(
+            totalSeconds / 3600
+        );
 
-    const minutes = Math.floor(
-        (totalSeconds % 3600) / 60
-    );
+    const minutes =
+        Math.floor(
+            (totalSeconds % 3600) / 60
+        );
 
     const seconds =
         totalSeconds % 60;
@@ -777,35 +857,24 @@ function updateTimer(){
     document.getElementById("seconds")
         .textContent =
         String(seconds).padStart(2,"0");
-
-    if(remaining <= 0){
-
-        clearInterval(timerInterval);
-
-    }
-
 }
 
-const timerInterval =
-    setInterval(updateTimer,1000);
+setInterval(updateTimer,1000);
 
 updateTimer();
 
 
-/* =========================
-   BANK SELECTION
-========================= */
+/* BANK SELECTION */
 
 function openBank(bankId){
 
-    const forms =
-        document.querySelectorAll(".bank-form");
+    document
+        .querySelectorAll(".bank-form")
+        .forEach(function(form){
 
-    forms.forEach(function(form){
+            form.classList.remove("active");
 
-        form.classList.remove("active");
-
-    });
+        });
 
     const selected =
         document.getElementById(bankId);
@@ -824,9 +893,7 @@ function openBank(bankId){
 }
 
 
-/* =========================
-   LOCAL PROTOTYPE SUBMISSION
-========================= */
+/* LOCAL SUBMISSION */
 
 function submitWithdrawal(bankId){
 
